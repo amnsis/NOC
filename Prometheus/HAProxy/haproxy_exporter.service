@@ -1,0 +1,12 @@
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=haproxy_exporter
+Group=haproxy_exporter
+Type=simple
+ExecStart=/usr/local/bin/haproxy_exporter --haproxy.scrape-uri="http://172.16.30.37:8404/monitor?stats;csv"
+
+[Install]
+WantedBy=multi-user.target
